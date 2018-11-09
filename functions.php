@@ -6,21 +6,20 @@ function loadPage($logicpage,$page){
 }
 
 function getData($dataFile){
-    ob_start();
     include DOCROOT."/data/".$dataFile."_data.php";
     return $data;
 }
 
 function renderTemplate($template,$content,$data){
     ob_start();
-    extract($data);
+    extract($data); //for taking 'title';
     include DOCROOT."/templates/".$template.".php";
     return ob_get_clean();
 }
 
 function renderView($data=[],$pagefile){
     ob_start();
-    extract($data);
+    extract($data); //for taking 'title';
     include DOCROOT."/views/".$pagefile.".php";
     return ob_get_clean();
 }

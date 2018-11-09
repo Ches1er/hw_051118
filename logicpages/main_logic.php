@@ -7,17 +7,17 @@ function mainPage($pagefile){
 
 function galleryPage($pagefile){
     $data= getData($pagefile);
-    extract($data);
     echo renderTemplateWithView($data,"default",$pagefile);
 }
 
 function newsPage($pagefile){
     $data= getData($pagefile);
-    extract($data);
     echo renderTemplateWithView($data,"default",$pagefile);
 }
 
 function errorPage($pagefile){
-    $data= "Error! Page is not found";
+    $data= [
+        "error_message"=>"Error! Page is not found"
+    ];
     echo renderTemplateWithView($data,"default",$pagefile);
 }
