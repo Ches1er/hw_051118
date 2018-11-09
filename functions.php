@@ -19,7 +19,7 @@ function renderTemplate($template,$content,$data){
 
 function renderView($data=[],$pagefile){
     ob_start();
-    extract($data); //for taking 'title';
+    extract($data);
     include DOCROOT."/views/".$pagefile.".php";
     return ob_get_clean();
 }
